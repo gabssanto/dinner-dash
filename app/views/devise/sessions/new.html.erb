@@ -1,26 +1,30 @@
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <body class="fundo">
+    <div class="log">
+      <h2 class="title">dinnerdash</h2>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <div class="intro1">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="intro2" >
+        <%= f.label :senha %><br />
+        <%=  f.password_field  :password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="intro4">
+        <%= f.submit "fazer login", class: "btn btn-success intro4" %>
+      </div>
+
+      <div class="rodape">
+        <h6 class="quest">Não possui conta?</h6>
+      </div>
+      <%= link_to "fazer meu cadastro", new_user_registration_path, class: "btn btn-info shared"   %>
+
+
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+    </body>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
