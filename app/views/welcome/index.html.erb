@@ -4,8 +4,8 @@
             
             <h2 class="user_edit">Logged in as <strong><%= current_user.name %></strong>.</h2 class="user_edit">
 
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'perfil_edit' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'logout_edit'  %>
+            <%= link_to 'Perfil', edit_user_registration_path, :class => 'perfil_edit' %> |
+            <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'logout_edit'  %>
           <% else %>
             <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success intro4"   %>
   <% end %>
