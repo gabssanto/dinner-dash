@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_02_023028) do
+ActiveRecord::Schema.define(version: 2018_07_05_022945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "meal_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "price"
+    t.binary "image"
+    t.string "avaible"
+    t.integer "MealCategory_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_meals", force: :cascade do |t|
+    t.integer "quantity"
+    t.string "Order_id"
+    t.string "integer"
+    t.string "Meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.float "price"
+    t.integer "User_id"
+    t.integer "Situation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "situations", force: :cascade do |t|
+    t.string "description"
+    t.string "string"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
