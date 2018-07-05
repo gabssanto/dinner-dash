@@ -1,6 +1,7 @@
 class BackofficeController < ApplicationController
 
-def backoffice
-end
+    def backoffice
+    
+    end
 
 end
