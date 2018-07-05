@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantity: 1
+  Order_id: MyString
+  integer: MyString
+  Meal_id: MyString
+  integer: MyString
+
+two:
+  quantity: 1
+  Order_id: MyString
+  integer: MyString
+  Meal_id: MyString
+  integer: MyString

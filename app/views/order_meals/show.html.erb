@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order_meal.quantity %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @order_meal.Order_id %>
+</p>
+
+<p>
+  <strong>Integer:</strong>
+  <%= @order_meal.integer %>
+</p>
+
+<p>
+  <strong>Meal:</strong>
+  <%= @order_meal.Meal_id %>
+</p>
+
+<p>
+  <strong>Integer:</strong>
+  <%= @order_meal.integer %>
+</p>
+
+<%= link_to 'Edit', edit_order_meal_path(@order_meal) %> |
+<%= link_to 'Back', order_meals_path %>
