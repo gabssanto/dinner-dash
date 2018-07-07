@@ -1,7 +1,6 @@
 <h1 class="title_edit">dinnerdash</h1>
 <body class = 'fundo_edit'>
   <% if user_signed_in? %>
-            
             <h2 class="user_edit">Bem-vindo, <strong><%= current_user.name %></strong>.</h2 class="user_edit">
 
             <%= link_to 'Perfil', edit_user_registration_path, :class => 'perfil_edit' %> |
