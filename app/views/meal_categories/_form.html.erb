@@ -10,14 +10,15 @@
       </ul>
     </div>
   <% end %>
+  <div class = "topmargin">
+    <div class="form-group mx-sm-3 mb-2">
+      <%= form.label :name %>
+      <%= form.text_field :name,  class: "form-control " %>
+    </div>
 
-  <div class="form-group mx-sm-3 mb-2">
-    <%= form.label :name %>
-    <%= form.text_field :name,  class: "form-control " %>
-  </div>
-
-  <div >
-    <%= form.submit "criar categoria de refeição", class:"btn btn-success intro5"  %>
-    <%= link_to 'Back', meal_categories_path, class:"btn btn-secondary " %>
+    <div >
+      <%= form.submit "criar categoria de refeição", class:"btn btn-success intro5"  %>
+      <%= link_to 'Back', meal_categories_path, class:"btn btn-secondary " %>
+    </div>
   </div>
 <% end %>

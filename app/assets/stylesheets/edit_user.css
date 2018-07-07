@@ -26,7 +26,7 @@
 	left: 70px;
 	top: 10px;
 	font-size: 25pt;
-	color: rgb(226, 224, 224);
+	color: rgb(255, 255, 255);
 }
 
 .user_edit {
@@ -35,7 +35,7 @@
 	left: 70px;
 	top: 200px;
 	font-size: 40pt;
-	color: rgb(226, 224, 224);
+	color: rgb(255, 255, 255);
 }
 .subtitle{
     font-family: 'Roboto', sans-serif;
@@ -43,7 +43,7 @@
 	left: 70px;
 	top: 270px;
 	font-size: 20pt;
-	color: rgb(226, 224, 224);
+	color: rgb(255, 255, 255);
 }
 .logout_edit {
 	font-family: 'Roboto', sans-serif;
@@ -75,4 +75,7 @@
 }
 .caixola2 {
     height: 40px;
+}
+.font{
+	font-family: 'Roboto', sans-serif;
 }
