@@ -7,6 +7,15 @@
 .font{
 	font-family: 'Roboto', sans-serif;
 }
+.font2{
+    font-family: 'Acme', sans-serif;
+}
+
 .leftmarginvoltar{
     margin-left: 10px;
+}
+.tablecss{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
