@@ -14,8 +14,8 @@
     
     background-color: white;
     position: absolute;
-    top: 370px;
-    bottom: 0px;
+    margin-top: 20%;
+    bottom: 0%;
     left: 0px; 
     right: 0px;
 	
@@ -26,7 +26,7 @@
 	left: 70px;
 	top: 10px;
 	font-size: 25pt;
-	color: rgb(226, 224, 224);
+	color: rgb(255, 255, 255);
 }
 
 .user_edit {
@@ -35,7 +35,7 @@
 	left: 70px;
 	top: 200px;
 	font-size: 40pt;
-	color: rgb(226, 224, 224);
+	color: rgb(255, 255, 255);
 }
 .subtitle{
     font-family: 'Roboto', sans-serif;
@@ -43,7 +43,7 @@
 	left: 70px;
 	top: 270px;
 	font-size: 20pt;
-	color: rgb(226, 224, 224);
+	color: rgb(255, 255, 255);
 }
 .logout_edit {
 	font-family: 'Roboto', sans-serif;
@@ -51,7 +51,7 @@
 	right: 50px;
 	top: 10px;
 	font-size: 15pt;
-	color: rgb(226, 224, 224);
+	color: rgb(255, 255, 255);
 }
 .perfil_edit {
     font-family: 'Roboto', sans-serif;
@@ -59,7 +59,7 @@
 	right: 150px;
 	top: 10px;
 	font-size: 15pt;
-	color: rgb(226, 224, 224);
+	color: rgb(255, 255, 255);
 }
 .edit1 {
 	width: 310px;
