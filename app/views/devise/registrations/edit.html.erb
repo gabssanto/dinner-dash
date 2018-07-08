@@ -5,35 +5,37 @@
    <div class="log2"> 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
-      <div >
-        <div class="edit1">
-          <%= f.label :nome %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name",  class: "form-control caixola2" %>
+      <div class = "perfil">
+      <form>
+        <div class="row">
+          <div class="col">
+            <%= f.label :nome %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name",  class: "form-control caixola2" %>
+          </div>
+          <div class="col">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autocomplete: "email",  class: "form-control caixola2" %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+          </div>
         </div>
-        
-        <div class="edit1">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autocomplete: "email",  class: "form-control caixola2" %>
-        </div>
-      </div>
-      <div >
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-        <div class="edit1">
-          <%= f.label :senha %><br>
-          <%= f.password_field :password, autocomplete: "off",  class: "form-control caixola2" %>
-        </div>
-
-        <div class="edit1">
-          <%= f.label :senha_atual %><br />
+        <div class="row">
+          <div class="col">
+            <%= f.label :senha %><br>
+            <%= f.password_field :password, autocomplete: "off",  class: "form-control caixola2" %>
+          </div>
+          <div class="col">
+            <%= f.label :senha_atual %><br />
           <%= f.password_field :current_password, autocomplete: "off",  class: "form-control caixola2" %>
+          </div>
         </div>
-        <div class="edit1" class="bt">
-        <%= f.submit "Update", class:"btn btn-success intro4" %>
+      </form>
+        
+        <%= f.submit "atualizar meu perfil", class:"btn btn-success btperfil" %>
       </div>
       </div>
+      <br>
       <br>
       
     <% end %>
