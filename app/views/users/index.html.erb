@@ -34,7 +34,7 @@
             <td><%= user.email %></td>
             <td><%=user.created_at.strftime("%d/%m/%Y")%></td>
             <td><%= user.admin %></td>      
-            <td><%= link_to 'Edit', "/uedit" , class:"text-warning font2" %></td>
+            <td><%= link_to 'Edit', edit_situation_path(user) , class:"text-warning font2" %></td>
             <td><%= link_to 'Destroy', situation_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger font2" %></td></td>
           </tr>
           <% end %>
