@@ -1,6 +1,6 @@
 class SituationsController < ApplicationController
   before_action :set_situation, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /situations
   # GET /situations.json
   def users
