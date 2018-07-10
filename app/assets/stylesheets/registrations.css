@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700');
+@import url('https://fonts.googleapis.com/css?family=Acme');
+
+.fundo {
+	background-size: 100% 100%;
+	background-image: url("/images/sabri-tuzcu-365440.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+.fundobackoffice {
+	background-size: 100% 100%;
+	background-image: url("/images/helloquence-61189.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+.log {
+	display: block;
+	float: right;
+	background-color: white;
+	height: 676px;
+	width: 510px;
+	margin-top: -58px;
+}
+
+.intro0 {
+	width: 312px;
+	display: block;
+	margin-left: 100px;
+	margin-top: 40px;
+}
+
+.intro1 {
+	width: 310px;
+	display: block;
+	margin-left: 100px;
+	margin-top: 15px;
+}
+.intro2 {
+	width: 310px;
+	display: block;
+	margin-left: 100px;
+	margin-top: 15px;
+}
+.intro3 {
+	width: 310px;
+	display: block;
+	margin-left: 100px;
+	margin-top: 15px;
+}
+.intro4 {
+	width: 310px;
+	display: block;
+	margin-left: 50px;
+	margin-top: 5px;
+}
+
+.intro5 {
+	width: 310px;
+	display: block;
+	margin-left: 15px;
+	margin-top: 0px;
+}
+
+.caixola {
+	height: 30px;
+}
+
+.title {
+	font-family: 'Acme', sans-serif;
+	display: block;
+	margin-left: 100px;
+	margin-top: 80px;
+	font-size: 35pt;
+	color: #575757;
+}
+
+.rodape {
+	clear: both;
+	border-top: 1px solid black;
+	width: 310px;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+.quest {
+	margin-top: 20px;
+}
+
+.shared {
+	width: 310px;
+	display: block;
+	margin-left: 100px;
+}
+
+.aviso {
+	display: inline-flex;
+}
