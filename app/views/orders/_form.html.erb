@@ -20,7 +20,7 @@
         </div>
         <div class="col">
             <%= form.label :Status %>
-            <%= form.number_field :Situation_id,  class: "form-control "   %>
+            <%= select_tag :Situation_id, options_for_select([ ["entregue", 0], ["pendente", 1], ["cancelado", 2] ], "MasterCard"),  class: "custom-select mr-sm-2 " %>
         </div>   
     </div>
 
