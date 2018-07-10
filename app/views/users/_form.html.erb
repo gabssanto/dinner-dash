@@ -1,0 +1,34 @@
+<% x = [] %>
+<% x.push("Administrador") %>
+<% x.push("Padrão") %>
+
+
+<div>
+    <% if @user.errors %>
+        <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
+</div>
+
+<%= form_for @user do |f| %>
+    <div>
+        <%= f.label :name %> <br />
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :email %> <br />
+        <%= f.text_area :email, size: '24x5' %>
+    </div>
+
+    <div>
+        <%= f.label :Perfil %> <br />
+        <%= f.select :admin, x %>
+    </div>
+
+    <%= f.submit 'Atualizar' %>
+    <%= link_to 'voltar', :back %>
+<% end %>
