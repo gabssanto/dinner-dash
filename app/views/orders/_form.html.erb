@@ -10,23 +10,45 @@
       </ul>
     </div>
   <% end %>
+  <div class = "leftmarginnavbar topmargin">
+    <h4>Editar Pedido</h4>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+    <div class="form-row">
+        <div class="col">
+            <%= form.label :Número %>
+            <%= form.text_field :Order_id, value: @order.id,  class: "form-control disabled", disabled: true %>
+        </div>
+        <div class="col">
+            <%= form.label :Status %>
+            <%= select_tag :Situation_id, options_for_select([ ["entregue", 1], ["pendente", 2], ["cancelado", 3] ], 2),  class: "custom-select mr-sm-2 " %>
+        </div>   
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+            <%= form.label :Data, class: "font" %>
+            <%= form.text_field :created_at, value: @order.created_at.strftime("%d/%m/%Y"),  class: "form-control disabled", disabled: true %>
+        </div>
+        <div class="col">
+            <%= form.label :Usuário %>
+            <%= form.text_field :User_id,  class: "form-control disabled", disabled: false  %>
+        </div>   
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+            <%= form.label :preço %>
+            <%= form.text_field :price,  class: "form-control disabled", disabled: true  %>
+        </div>  
+        <div class="col">
+            
+        </div>  
+    </div>
+
+    <div class="topmargin form-row">
+        <%= form.submit "atualizar pedido", class:"btn btn-success intro5 active"  %>
+        <%= link_to 'voltar', orders_path, class:"leftmarginvoltar btn btn-secondary active" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :User_id %>
-    <%= form.number_field :User_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Situation_id %>
-    <%= form.number_field :Situation_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
