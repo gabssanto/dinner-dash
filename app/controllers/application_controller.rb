@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password])
 
     end
-
+  
   def after_sign_in_path_for(user)
  	if current_user.admin?
  		orders_path
@@ -18,5 +18,5 @@ class ApplicationController < ActionController::Base
  		welcome_index_path
  	end
   end
-
+  
 end
