@@ -34,8 +34,8 @@
             <td><%= user.email %></td>
             <td><%=user.created_at.strftime("%d/%m/%Y")%></td>
             <td><%= user.admin %></td>      
-            <td><%= link_to 'Edit', edit_situation_path(user) , class:"text-warning font2" %></td>
-            <td><%= button_to "Cancel my account", registration_path(user), data: { confirm: "Are you sure?" }, method: :delete, class:"text-danger font2" %></td></td>
+            <td><%= link_to 'Edit', edit_user_registration_path(user.id) , class:"text-warning font2" %></td>
+            <td><%= link_to "Cancel my account", user_registration_path(user), data: { confirm: "Are you sure?" }, method: :delete, class:"text-danger font2" %></td>
           </tr>
           <% end %>
         </tbody>    

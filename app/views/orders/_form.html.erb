@@ -20,18 +20,18 @@
         </div>
         <div class="col">
             <%= form.label :Status %>
-            <%= select_tag :Situation_id, options_for_select([ ["entregue", 0], ["pendente", 1], ["cancelado", 2] ], "MasterCard"),  class: "custom-select mr-sm-2 " %>
+            <%= select_tag :Situation_id, options_for_select([ ["entregue", 1], ["pendente", 2], ["cancelado", 3] ], 2),  class: "custom-select mr-sm-2 " %>
         </div>   
     </div>
 
     <div class="form-row">
         <div class="col">
             <%= form.label :Data, class: "font" %>
-            <% form.text_field :created_at, value: @order.created_at.strftime("%d/%m/%Y"),  class: "form-control disabled", disabled: true %>
+            <%= form.text_field :created_at, value: @order.created_at.strftime("%d/%m/%Y"),  class: "form-control disabled", disabled: true %>
         </div>
         <div class="col">
             <%= form.label :Usuário %>
-            <%= form.text_field :User_id,  class: "form-control disabled", disabled: true  %>
+            <%= form.text_field :User_id,  class: "form-control disabled", disabled: false  %>
         </div>   
     </div>
 
