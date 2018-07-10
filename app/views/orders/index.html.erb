@@ -26,7 +26,7 @@
               <th scope="col">Data</th>
               <th scope="col">Usuário</th>
               <th scope="col">Preço Total</th>
-              <th scope="col" colspan="4">Detalhes</th>
+              <th scope="col" colspan="5">Detalhes</th>
             </tr>
           </thead>
 
@@ -34,6 +34,15 @@
             <% @orders.each do |order| %>
               <tr>
                 <td scope="row"><%= order.id %></td>
+                <%   if order.Situation_id == 0%>
+                  <td class="bg-primary text-white">entregue</td>
+                <%end%>
+                <%   if order.Situation_id == 1%>
+                  <td class="bg-success text-white">pendente</td>
+                <%end%>
+                <%   if order.Situation_id == 2%>
+                  <td class="bg-danger text-white">cancelado</td>
+                <%end%>
                 <td><%= order.Situation_id %></td>
                 <td><%=order.created_at.strftime("%d/%m/%Y")%></td>
                 <td>usuario </td>
