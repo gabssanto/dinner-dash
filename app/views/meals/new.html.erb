@@ -1,5 +1,24 @@
-<h1>New Meal</h1>
+<h1 class="title_edit">dinnerdash</h1>
+<%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'active logout_edit'  %>
+<h1 class="user_edit">Backoffice</h1>
+<h2 class="subtitle">Gerencie pedidos, refeicoes e mais.</h2>
 
+<body class="fundobackoffice">
+  <div class ="log3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="leftmarginnavbar">
+            <div class="navbar-nav">
+            <%= link_to 'Pedidos', "/orders", class:"nav-item nav-link  " %>
+            <%= link_to 'Usuários', "/users", class:"nav-item nav-link " %>
+            <%= link_to 'Refeições', "/meals", class:"nav-item nav-link active " %>
+            <%= link_to 'Categorias de Refeição', "/meal_categories", class:"nav-item nav-link " %>
+            </div>
+        </div>
+      </div>
+    </nav>
+    <div class="tablecss">
+        <h4 class="text-secondary">Nova Refeição</h4>
+    </div>
 <%= render 'form', meal: @meal %>
-
-<%= link_to 'Back', meals_path %>
+</body>
