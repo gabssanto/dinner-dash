@@ -1,0 +1,15 @@
+<h1 class="title_edit">dinnerdash</h1>
+<body class = 'fundo_edit'>
+  <% if user_signed_in? %>
+            <h2 class="user_edit">Bem-vindo, <strong><%= current_user.name %></strong>.</h2 class="user_edit">
+
+            <%= link_to 'Perfil', edit_user_registration_path, :class => 'perfil_edit' %> |
+            <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'logout_edit'  %>
+             <% if current_user.admin? %>
+             <%= link_to "Ir para backoffice", "/orders", class: "btn btn-success intro4"   %>
+             <% end %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success intro4"   %>
+            
+  <% end %>
+</body>

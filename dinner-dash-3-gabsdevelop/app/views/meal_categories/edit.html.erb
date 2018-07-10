@@ -1,0 +1,23 @@
+<%= link_to "dinnerdash", :back, :class => 'title_edit active' %>
+<%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'active logout_edit'  %>
+<h1 class="user_edit">Backoffice</h1>
+<h2 class="subtitle">Gerencie pedidos, refeicoes e mais.</h2>
+
+<body class="fundobackoffice">
+    <div class ="log2">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div class="leftmarginnavbar">
+                <div class="navbar-nav">
+                    <%= link_to 'Pedidos', "/orders", class:"nav-item nav-link " %>
+                    <%= link_to 'Usuários', "/users", class:"nav-item nav-link " %>
+                    <%= link_to 'Refeições', "/meals", class:"nav-item nav-link " %>
+                    <%= link_to 'Categorias de Refeição', "/meal_categories", class:"nav-item nav-link active " %>
+                </div>
+            </div>
+            </div>
+        </nav>
+        
+        <%= render 'form2', meal_category: @meal_category %>
+    </div>
+</body>
