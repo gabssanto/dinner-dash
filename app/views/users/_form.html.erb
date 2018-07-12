@@ -26,7 +26,11 @@
 
     <div>
         <%= f.label :Perfil %> <br />
-        <%= f.select :admin, x %>
+        <% if @user.admin?%>
+            <%= f.select :admin, options_for_select([ ['Administrador', 1], ['Padrão', 0] ]) %>
+        <% else %>
+            <%= f.select :admin, options_for_select([['Padrão', 0], ['Administrador', 1]]) %>
+        <% end %>
     </div>
 
     <%= f.submit 'Atualizar' %>
