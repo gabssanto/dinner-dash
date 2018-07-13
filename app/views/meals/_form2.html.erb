@@ -1,60 +1,67 @@
 <%= form_with(model: meal, local: true) do |form| %>
     <% if meal.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
-  
-        <ul>
-        <% meal.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
+        <div id="error_explanation">
+            <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+    
+            <ul>
+            <% meal.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+        </div>
     <% end %>
-      <div class="tablecss">
-          <div class="form-row">
-              <div class="col">
-                  <%= form.label :Nome, class: "text-muted" %>
-                  <%= form.text_field :name, class: "form-control" %>
-              </div>
-              <div class="col">
-                  <%= form.label :Categoria, class: "text-muted" %>
-                  <%= form.number_field :MealCategory_id, class: "form-control" %>
-              </div>
-          </div>
-  
-          <br>
-  
-          <div class="field">
-              <%= form.label :Descrição, class: "text-muted" %>
-              <%= form.text_field :description, class: "form-control form-control-lg" %>
-          </div>
-  
-          <br>
-  
-          <div class="form-row">  
-              <div class="col">
-                  <%= form.label :Preço, class: "text-muted" %>
-                  <%= form.text_field :price, class: "form-control" %>
-              </div>
-              <div class="col">
-                  <%= form.label :Imagem, class: "text-muted" %>
-                  <div class="custom-file">
-                      <%= form.file_field :image, class: "custom-file-input", id: "customFile", required:true %>
-                      <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                      <div class="invalid-feedback">Example invalid custom file feedback</div>
-                  </div>
-                  <div class="custom-file">
-                      <%= form.file_field :image, class: "custom-file-input", id: "customFile" %>
-                  </div>
-              </div>
-          </div>
-  
-          <div class="form-row">
-              <div class="col">
-                  <%= form.submit "Editar refeição", class:"btn btn-success intro5"%>
-                  <%= link_to 'voltar', meal_categories_path, class:"btn btn-secondary active" %>
-              </div>
-          </div>
-      </div>
-  <% end %>
+    <div class="tablecss">
+        <div class="form-row">
+            <div class="col">
+                <%= form.label :Nome, class: "text-muted" %>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div class="col">
+                <%= form.label :Categoria, class: "text-muted" %>
+                <%= form.number_field :MealCategory_id, class: "form-control" %>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="field">
+            <%= form.label :Descrição, class: "text-muted" %>
+            <%= form.text_field :description, class: "form-control form-control-lg" %>
+        </div>
+
+        <br>
+
+        <div class="form-row">  
+            <div class="col">
+                <%= form.label :Preço, class: "text-muted" %>
+                <%= form.text_field :price, class: "form-control" %>
+            </div>
+            <div class="col">
+                <%= form.label :Imagem, class: "text-muted" %>
+                <div class="custom-file">
+                    <%= form.file_field :image, class: "custom-file-input", id: "customFile", required:true %>
+                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                </div>
+                <div class="custom-file">
+                    <%= form.file_field :image, class: "custom-file-input", id: "customFile" %>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="col">
+                <%= form.label :Esta_refeição_está_disponível_?, class: "text-muted"%>
+                <%= form.check_box :avaible %>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                <%= form.submit "Editar refeição", class:"btn btn-success intro5"%>
+                <%= link_to 'voltar', meals_path, class:"btn btn-secondary active" %>
+            </div>
+        </div>
+    </div>
+<% end %>
   
