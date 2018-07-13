@@ -10,7 +10,7 @@
           <div class="leftmarginnavbar">
               <div class="navbar-nav">
                   <%= link_to 'Pedidos', "/orders", class:"nav-item nav-link" %>
-                  <%= link_to 'Usuários', "/users", class:"nav-item nav-link active" %>
+                  <%= link_to 'Usuários', "/userdmins", class:"nav-item nav-link active" %>
                   <%= link_to 'Refeições', "/meals", class:"nav-item nav-link " %>
                   <%= link_to 'Categorias de Refeição', "/meal_categories", class:"nav-item nav-link" %>
               </div>
@@ -23,6 +23,7 @@
           <tr>
             <th scope="col">Nome</th>
             <th scope="col">Email</th>
+            <th scope="col">Perfil</th>
             <th colspan="4"scope="col">Cadastrado em</th>
           </tr>
         </thead>
@@ -31,11 +32,22 @@
             <% @users.each do |user| %>
               <tr>
                 <td><%= user.name %></td>
+<<<<<<< HEAD:app/views/users/index.html.erb
                 <td><%= user.email %></td>
                 <td><%= user.created_at.strftime("%d/%m/%y") %></td>
                 <td><%= link_to "edit", edit_user_path(user), class:"text-warning font2" %></td>
                 <td><%= link_to 'Apagar', user_path(user), 
                           method: :delete, data: { confirm: "Tem certeza?" } , class:"text-danger font2"  %> </td>
+=======
+                
+                <td><%= user.email %></td>
+                <td><%= user.admin %></td>
+                <td><%= user.created_at.strftime("%d/%m/%y") %></td>
+                <td><%= link_to "edit", edit_userdmin_path(user) %></td>
+                <td><%= link_to 'Apagar', userdmin_path(user), 
+                          method: :delete, data: { confirm: "Tem certeza?" }   %> </td>
+                
+>>>>>>> 214bff99191fc48df84666d02c313293fc929948:app/views/userdmins/index.html.erb
               </tr>
           <%end%>
         </tbody>    

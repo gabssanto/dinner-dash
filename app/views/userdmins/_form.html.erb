@@ -1,8 +1,11 @@
+<<<<<<< HEAD:app/views/users/_form.html.erb
 <% x = [] %>
 <% x.push("Administrador") %>
 <% x.push("Padrão") %>
 <%= form_for @user do |f| %>
 
+=======
+>>>>>>> 214bff99191fc48df84666d02c313293fc929948:app/views/userdmins/_form.html.erb
 <div>
     <% if @user.errors %>
         <ul>
@@ -13,8 +16,16 @@
     <% end %>
 </div>
 
+<<<<<<< HEAD:app/views/users/_form.html.erb
 <div class = "leftmarginnavbar topmargin">
     <h4>Editar Pedido</h4>
+=======
+<%= form_for(@user, url: userdmin_path, method: :put) do |f| %>
+    <div>
+        <%= f.label :name %> <br />
+        <%= f.text_field :name %>
+    </div>
+>>>>>>> 214bff99191fc48df84666d02c313293fc929948:app/views/userdmins/_form.html.erb
 
     <div class="form-row">
         <div class="col">
@@ -27,6 +38,7 @@
         </div>   
     </div>
 
+<<<<<<< HEAD:app/views/users/_form.html.erb
     <div class="form-row">
         <div class="col">
             <%= f.label :email %> <br />
@@ -36,6 +48,15 @@
             <%= f.label :Data, class: "font" %>
             <%= f.text_field :created_at, value: @user.created_at.strftime("%d/%m/%Y"),  class: "form-control disabled", disabled: true %>
         </div>   
+=======
+    <div>
+        <%= f.label :Perfil %> <br />
+        <% if @user.admin? %>
+            <%= f.select :admin, options_for_select([ ['Administrador', 1], ['Padrão', 0] ]) %>
+        <% else %>
+            <%= f.select :admin, options_for_select([['Padrão', 0], ['Administrador', 1]]) %>
+        <% end %>
+>>>>>>> 214bff99191fc48df84666d02c313293fc929948:app/views/userdmins/_form.html.erb
     </div>
 
     <div class="topmargin form-row">
