@@ -18,8 +18,7 @@
 			</div>
 			<div class="col">
 				<%= form.label :Categoria, class: "text-muted" %><br>
-				<%= form.select :MealCategory_id, (MealCategory.all), class: "my-1 mr-2" %>
-				<%= form.number_field :MealCategory_id, class: "form-control" %>
+				<%= form.select :MealCategory_id, MealCategory.all.map{|c| [c.name, c.id]}, class: "my-1 mr-2" %>
 			</div>
 		</div>
 
