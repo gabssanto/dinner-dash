@@ -27,7 +27,7 @@
     <div class="form-row">
         <div class="col">
             <%= form.label :Data, class: "font" %>
-            <%# form.text_field :created_at, value: @order.created_at.strftime("%d/%m/%Y"),  class: "form-control disabled", disabled: true %>
+            <%= form.text_field :created_at, value: @order.created_at.strftime("%d/%m/%Y"),  class: "form-control disabled", disabled: true %>
         </div>
         <div class="col">
             <%= form.label :Usuário %>
