@@ -98,6 +98,7 @@
 
           <tbody>
             <% @orders.each do |order| %>
+            <%if current_user.id == order.User_id%>
               <tr>
                 <td scope="row"><%= order.id %></td>
                 <%   if order.Situation_id == 1 %>
@@ -111,13 +112,14 @@
                 <%end%>
                 <%#= order.Situation_id %>
                 <td><%=order.created_at.strftime("%d/%m/%Y")%></td>
-                <td>usuario </td>
+                <td><%= current_user.name %> </td>
                 <td><%= order.User_id %></td>
                 <td><%= order.price %></td>
                 <td><%= link_to 'ver itens pedidos', order, class:"text-primary font2" %></td>
                 <td><%= link_to 'Edit', edit_order_path(order), class:"text-warning font2" %></td>
                 <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger font2" %></td>
               </tr>
+            <% end %>
             <% end %>
           </tbody>
         </table>
