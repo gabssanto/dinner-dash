@@ -16,3 +16,7 @@ Order.create(:price => 29, :User_id => 1, :Situation_id => 3)
 Order.create(:price => 24, :User_id => 2, :Situation_id => 1)
 Order.create(:price => 38, :User_id => 2, :Situation_id => 2)
 Order.create(:price => 81, :User_id => 2, :Situation_id => 3)
+
+Situation.create(:description => "entregue")
+Situation.create(:description => "pendente")
+Situation.create(:description => "cancelado")

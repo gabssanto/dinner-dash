@@ -1,3 +1,3 @@
 class Situation < ApplicationRecord
-    belongs_to :orders
+    has_one :order
 end

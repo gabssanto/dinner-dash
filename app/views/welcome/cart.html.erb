@@ -85,12 +85,11 @@
 
         <div class = "tablecss">
         <table class="table">
-          <thead class="thead-light">
+          <thead>
             <tr>
               <th scope="col">Pedido de nº</th>
               <th scope="col">Status</th>
               <th scope="col">Data</th>
-              <th scope="col">Usuário</th>
               <th scope="col">Preço Total</th>
               <th scope="col" colspan="5">Detalhes</th>
             </tr>
@@ -112,12 +111,8 @@
                 <%end%>
                 <%#= order.Situation_id %>
                 <td><%=order.created_at.strftime("%d/%m/%Y")%></td>
-                <td><%= current_user.name %> </td>
-                <td><%= order.User_id %></td>
                 <td><%= order.price %></td>
                 <td><%= link_to 'ver itens pedidos', order, class:"text-primary font2" %></td>
-                <td><%= link_to 'Edit', edit_order_path(order), class:"text-warning font2" %></td>
-                <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger font2" %></td>
               </tr>
             <% end %>
             <% end %>
