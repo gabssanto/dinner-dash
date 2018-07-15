@@ -13,8 +13,11 @@
                 <%=meal.name%>
             </div>
             <br>
+            <%a = (meal.price)%>
+            <%b = (order_meal.quantity)%>
+            <%c = a * b%>
             <h5 class="card-text text-secondary">Preço unitário: R$ <%= meal.price%>,00</h5>
-            <h5 class="card-text text-secondary">Preço total: R$ <%= meal.price * order_meal.quantity%>,00</h5>
+            <h5 class="card-text text-secondary">Preço total: R$ <%= c%>,00</h5>
             <h6 class="card-text text-secondary">Quantidade: <%= order_meal.quantity %></h6>              
             </div>       
         </div>

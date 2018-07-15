@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_07_05_022945) do
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "price"
+    t.integer "price"
     t.binary "image"
     t.string "avaible"
     t.integer "MealCategory_id"
