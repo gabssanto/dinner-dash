@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @meals = Meal.all
+    @meal_categories = MealCategory.all
   end
 
   def cart
@@ -8,3 +9,4 @@ class WelcomeController < ApplicationController
     @orders = Order.all
   end
 end
+

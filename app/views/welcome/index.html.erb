@@ -1,71 +1,80 @@
 <h1 class="title_edit">dinnerdash</h1>
 <% if user_signed_in? %>
-  <h2 class="user_edit">Bem-vindo, <strong><%= current_user.name %></strong>.</h2 class="user_edit">
-  <%= link_to 'Perfil', edit_user_registration_path, :class => 'perfil_edit text-white' %> |
-  <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'logout_edit text-white'  %>
-  <% if current_user.admin? %>
-    <%= link_to "Ir para backoffice", "/orders", class: "btn btn-success intro4"   %>
-  <% end %>
+	<h2 class="user_edit">Bem-vindo, <strong><%= current_user.name %></strong>.</h2 class="user_edit">
+	<%= link_to 'Perfil', edit_user_registration_path, :class => 'perfil_edit text-white' %> |
+	<%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'logout_edit text-white'  %>
+	<% if current_user.admin? %>
+		<%= link_to "Ir para backoffice", "/orders", class: "btn btn-success intro4"   %>
+	<% end %>
 <% else %>
-  <div class="welcomeButtonsEdit">
-    <%= link_to "entrar", new_user_session_path, class: "text-white" %>
-    <%= link_to "cadastro", new_user_registration_path, class: "text-white" %>
-  </div>
-  <h1 class="user_edit">Monte o seu prato</h1>
-  <h2 class="subtitle">Escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+	<div class="welcomeButtonsEdit">
+		<%= link_to "entrar", new_user_session_path, class: "text-white" %>
+		<%= link_to "cadastro", new_user_registration_path, class: "text-white" %>
+	</div>
+	<h1 class="user_edit">Monte o seu prato</h1>
+	<h2 class="subtitle">Escolha sua salada, molho, prato principal, guarnição e bebida, etc</h2>
 <% end %>
 
 <body class ="fundoWelcome">
-  <div class="log4">
-    <div class="tablecss">
-      <div class="form-row col">
-      	<% @meals.each do |meal| %>
-          <% if meal.avaible  == '1' %>
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <img src="/images/Macarrão.jpg", class="card-img-top">
-                <div class="card-header bg-dark text-white">
-                  <%=meal.name%>
-                </div>
-                <% if meal.avaible  == '0' %>
-                  <h7 class="card-text text-secondary">Refeição indisponível</h7>
-                  <br>
-                <% end %>
-                <h7 class="card-text text-secondary"><%= meal.description %></h7>
-                <br>
-                <h5 class="card-text text-success">R$ <%= meal.price%>,00 por porção</h5>              
-              </div>
-              <div class="card-body">
-                <h6 class="card-text text-secondary">Quantidade</h6>
-                <select class="custom-select">
-                  <option selected>1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-                <br>
-                <br>
-                <button type="button" class="btn btn-success text-white welcomeAddButton">adicionar ao meu prato</button>
-              </div>
-            </div>
-          <% end %>
-      	<% end %>
-    	</div>
+  	<div class="log4">
+    	<div class="tablecss">
+			<% @meal_categories.each do |meal_category| %>
+				<br>
+				<h4 class="text-secondary"> <%= meal_category.name %> </h4>
+				<br>
+				<div class="form-row">
+    				<% @meals.each do |meal| %>
+	  					<% if meal.MealCategory_id == meal_category.id%>
+          					<% if meal.avaible  != '0' %>
+	  							<div class="col">
+            						<div class="card" style="width: 18rem;">
+              							<div class="card-body">
+                							<img src="/images/<%=meal.name%>.jpg", class="card-img-top mealSize", alt="Card image cap">
+                							<div class="card-header bg-dark text-white namefontsize">
+                  								<%=meal.name%>
+                							</div>
+                							<h7 class="card-text text-secondary"><%= meal.description %></h7>
+                							<br>
+                							<h5 class="card-text text-success">R$ <%= meal.price%>,00 por porção</h5>              
+              							</div>
+              							<div class="card-body">
+											<h6 class="card-text text-secondary">Quantidade</h6>
+											<select class="custom-select">
+												<option selected>1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+											</select>
+											<br>
+											<br>
+											<button type="button" class="btn btn-success text-white welcomeAddButton">adicionar ao meu prato</button>
+										</div>
+									</div>
+								</div>
+							<% end %>
+						<% end %>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+		<div class="welcomesession">
+			<h3 class="text-secondary">Finalizou o seu prato?</h3>
+			<p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
+			<br>
+			<h3 class="text-secondary">Preço total do pedido:</h3>
+			<% if user_signed_in? %>
+				<%= link_to "finalizar e pagar", new_user_session_path , class: "btn btn-success text-white" %>
+			<% else %>
+				<p class="text-black-50">Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro</p>
+				<%= link_to "entrar", new_user_session_path, class: "btn btn-success text-white welcomeorderbutton" %>
+				<%= link_to "cadastro", new_user_registration_path, class: "btn btn-outline-success welcomeorderbutton" %>
+			<% end %>
+		</div>
   	</div>
-  <div>
-    <h3 class="text-secondary">Finalizou o seu prato?</h3>
-    <p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
-    <br>
-    <h3 class="text-secondary">Preço total do pedido:</h3>
-    <p class="text-black-50">Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro</p>
-    <%= link_to "entrar", new_user_session_path, class: "btn btn-success text-white welcomeorderbutton" %>
-    <%= link_to "cadastro", new_user_registration_path, class: "btn btn-outline-success welcomeorderbutton" %>
-  </div>
-  </div>
 </body>

@@ -31,7 +31,13 @@
           <% @meal_categories.each do |meal_category| %>
             <tr>
               <td scope="row"><%= meal_category.name %></td>
-              <td>0</td>
+              <% contador = 0 %>
+              <% @meals.each do |meal| %>
+                <% if meal.MealCategory_id == meal_category.id%>
+                  <% contador += 1 %>
+                <% end %>
+              <% end %>
+              <td> <%= contador%> </td>
               <td><%=meal_category.created_at.strftime("%d/%m/%Y")%></td>
               <td><%= link_to 'Edit', edit_meal_category_path(meal_category), class:"text-warning font2"  %></td>
               <td><%= link_to 'Destroy', meal_category, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger font2" %></td>

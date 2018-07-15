@@ -26,7 +26,7 @@
 
 		<div class="field">
 			<%= form.label :Descrição, class: "text-muted" %>
-			<%= form.text_field :description, class: "form-control form-control-lg" %>
+			<%= form.text_area :description, size:'24x5', class: "form-control" %>
 		</div>
 
 		<br>
@@ -43,17 +43,13 @@
 					<label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
 					<div class="invalid-feedback">Example invalid custom file feedback</div>
 				</div>
-				<div class="custom-file">
-					<%= form.file_field :image, class: "custom-file-input", id: "customFile" %>
-				</div>
 			</div>
 		</div>
-
-		<% avaible = 1%>
-
+		<br>
+		<br>
 		<div class="form-row">
 			<div class="col">
-				<%= form.submit "Criar refeição", class:"btn btn-success intro5"%>
+				<%= form.submit "Criar refeição", class:"btn btn-success intro6"%>
 				<%= link_to 'voltar', meals_path, class:"btn btn-secondary active" %>
 			</div>
 		</div>
