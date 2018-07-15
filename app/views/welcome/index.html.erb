@@ -51,7 +51,7 @@
                 </select>
                 <br>
                 <br>
-                <button type="button" class="btn btn-success text-white welcomeAddButton">adicionar ao meu prato</button>
+                <button type="button" class="btn btn-success text-white welcomeAddButton"><%= link_to "Add to cart", cart_items_path(meal_id: meal.id), method: :create%></button>
               </div>
             </div>
           <% end %>
