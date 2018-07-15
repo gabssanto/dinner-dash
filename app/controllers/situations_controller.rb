@@ -7,6 +7,10 @@ class SituationsController < ApplicationController
     @situations = Situation.all
   end
 
+  def index
+    @situations = Situation.all
+  end
+
   # GET /situations/1
   # GET /situations/1.json
   def show

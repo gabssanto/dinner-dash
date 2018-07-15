@@ -19,8 +19,8 @@
             <%= form.text_field :Order_id, value: @order.id,  class: "form-control disabled", disabled: true %>
         </div>
         <div class="col">
-            <%= form.label :Status %>
-            <%= select_tag :Situation_id, options_for_select([ ["entregue", 1], ["pendente", 2], ["cancelado", 3] ], 2),  class: "custom-select mr-sm-2 " %>
+            <%= form.label :Status %><br>
+            <%= form.select :Situation_id, Situation.all.map{|c| [c.description, c.id]}, class: "form-control my-1 mr-2" %>
         </div>   
     </div>
 

@@ -6,6 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(:name => 'Administrador', :email => 'admin@admin.com', :password => 'admin123', :password_confirmation => 'admin123', :admin => true)
+User.create(:name => 'Gabriel', :email => 'gabriel@gabriel.com', :password => '123456', :password_confirmation => '123456', :admin => false)
+User.create(:name => 'Andrey', :email => 'andrey@andrey.com', :password => '123456', :password_confirmation => '123456', :admin => false)
+User.create(:name => 'Ribas', :email => 'ribas@ribas.com', :password => '123456', :password_confirmation => '123456', :admin => false)
+
+Order.create(:price => 72, :User_id => 1, :Situation_id => 1)
+Order.create(:price => 34, :User_id => 1, :Situation_id => 2)
+Order.create(:price => 29, :User_id => 1, :Situation_id => 3)
+
+Order.create(:price => 24, :User_id => 2, :Situation_id => 1)
+Order.create(:price => 38, :User_id => 2, :Situation_id => 2)
+Order.create(:price => 81, :User_id => 2, :Situation_id => 3)
+
+Situation.create(:description => "entregue")
+Situation.create(:description => "pendente")
+Situation.create(:description => "cancelado")
+
+OrderMeal.create(:quantity => 1, :Order_id => 4, :Meal_id => 1)
+OrderMeal.create(:quantity => 1, :Order_id => 4, :Meal_id => 2)
+
 Meal.create(name: 'Salada de Macarrão Parafuso', description: 'Possui macarrão, frango, milho, alcaparras e algumas frutas.', price: '12', image: '/images/Salada de Macarrão Parafuso.jpg', avaible: '1', MealCategory_id: '1'  )
 Meal.create(name: 'Salada de Macarrão e Atum', description: 'Possui macarrão, atum, milho, pimentão, cebola e maionese', price: '12', image: '/images/Salada de Macarrão e Atum.jpg', avaible: '1', MealCategory_id: '1'  )
 Meal.create(name: 'Salada de Atum Light', description: 'Possui alface, abacate, milho, atum, cebola e alho.', price: '12', image: '/images/Salada de Atum Light.jpg', avaible: '1', MealCategory_id: '1'  )
@@ -25,7 +44,8 @@ Meal.create(name: 'Farofa de Banana', description: 'Possui banana, bacon, passas
 Meal.create(name: 'Suco Natural', price: '6', image: '/images/Suco Natural.jpg', avaible: '1', MealCategory_id: '5'  )
 Meal.create(name: 'Refrigerante Lata', price: '4', image: '/images/Refrigerante Lata.jpg', avaible: '1', MealCategory_id: '5'  )
 Meal.create(name: 'Refrigerante de 2 litros', price: '10', image: '/images/Refrigerante de 2 litros.jpg', avaible: '1', MealCategory_id: '5'  )
-Meal.create(name: 'Cerveja Lata', price: '5', image: '/images/Cerveja Lata.jpg', avaible: '1', MealCategory_id: '5'  )
+Meal.create(name: 'Cerveja Lata', price: '5', image: '/images/Cerveja Lata.jpg', avaible: '1', MealCategory_id: '5' )
+
 MealCategory.create(name: 'Saladas')
 MealCategory.create(name: 'Molhos')
 MealCategory.create(name: 'Pratos principais')

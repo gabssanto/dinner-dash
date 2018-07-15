@@ -10,7 +10,7 @@
           <div class="leftmarginnavbar">
               <div class="navbar-nav">
                   <%= link_to 'Pedidos', "/orders", class:"nav-item nav-link" %>
-                  <%= link_to 'Usuários', "/users", class:"nav-item nav-link active" %>
+                  <%= link_to 'Usuários', "/userdmins", class:"nav-item nav-link active" %>
                   <%= link_to 'Refeições', "/meals", class:"nav-item nav-link " %>
                   <%= link_to 'Categorias de Refeição', "/meal_categories", class:"nav-item nav-link" %>
               </div>
@@ -21,7 +21,7 @@
       <table class="table">
         <thead class="thead-light">
           <tr>
-            <th scope="col">Nome</th>
+            <th colspan="2"scope="col">Nome</th>
             <th scope="col">Email</th>
             <th colspan="4"scope="col">Cadastrado em</th>
           </tr>
@@ -30,13 +30,14 @@
               <tbody>
             <% @users.each do |user| %>
               <tr>
+                <td><%= user.admin %></td>
                 <td><%= user.name %></td>
-                <td><%= user.created_at.strftime("%d/%m/%y") %></td>
                 <td><%= user.email %></td>
-                <td><%= link_to "edit", edit_user_path(user) %></td>
-                <td><%= link_to 'Apagar', user_path(user), 
-                          method: :delete, data: { confirm: "Tem certeza?" }   %> </td>
-                <td> <%= link_to 'Back', "/orders" %> </td>
+                <td><%= user.created_at.strftime("%d/%m/%y") %></td>
+                <td><%= link_to "edit", edit_userdmin_path(user), class:"text-warning font2" %></td>
+                <td><%= link_to 'Apagar', userdmin_path(user), 
+                          method: :delete, data: { confirm: "Tem certeza?" } , class:"text-danger font2"   %> </td>
+                
               </tr>
           <%end%>
         </tbody>    

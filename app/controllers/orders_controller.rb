@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
+    @users = User.all
   end
 
   # GET /orders/1
