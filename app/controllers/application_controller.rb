@@ -20,4 +20,13 @@ class ApplicationController < ActionController::Base
  	end
   end
 
+  def load_cart
+  	@cart ||= Cart.new(session[:cart])
+  end
+  before_action :load_cart
+
+  def cart
+  	@cart
+  end
+  helper_method :cart
 end
