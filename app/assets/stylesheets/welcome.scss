@@ -14,12 +14,15 @@
 
 .log4{
     background-color: white;
-    position: absolute;
     margin-top: 20%;
     left: 0px; 
     right: 0px;
 }
 
+.log6{
+    position: absolute;
+    bottom: 0%;
+}
 .fundoWelcome{
 	background-size: 100% 70%;
 	background-image: url("/images/jay-wennington-2065.jpg");
@@ -29,4 +32,8 @@
 
 .welcomeorderbutton{
     width: 15.1%;
+}
+
+.welcomesession{
+    margin-left: 80px;
 }

@@ -9,6 +9,7 @@ class MealCategoriesController < ApplicationController
   # GET /meal_categories.json
   def index
     @meal_categories = MealCategory.all
+    @meals = Meal.all
   end
 
   # GET /meal_categories/1

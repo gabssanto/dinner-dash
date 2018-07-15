@@ -4,7 +4,7 @@ class CreateMeals < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :description
       t.string :price
-      t.binary :image
+      t.string :image
       t.string :avaible
       t.integer :MealCategory_id
 

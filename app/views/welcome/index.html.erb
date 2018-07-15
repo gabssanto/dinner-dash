@@ -20,17 +20,13 @@
     <div class="tablecss">
       <div class="form-row col">
       	<% @meals.each do |meal| %>
-          <% if meal.avaible  == '1' %>
+          <% if meal.avaible  != '0' %>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <img src="/images/Macarrão.jpg", class="card-img-top">
-                <div class="card-header bg-dark text-white">
+                <img src="/images/<%=meal.name%>.jpg", class="card-img-top mealSize", alt="Card image cap">
+                <div class="card-header bg-dark text-white namefontsize">
                   <%=meal.name%>
                 </div>
-                <% if meal.avaible  == '0' %>
-                  <h7 class="card-text text-secondary">Refeição indisponível</h7>
-                  <br>
-                <% end %>
                 <h7 class="card-text text-secondary"><%= meal.description %></h7>
                 <br>
                 <h5 class="card-text text-success">R$ <%= meal.price%>,00 por porção</h5>              
@@ -58,14 +54,18 @@
       	<% end %>
     	</div>
   	</div>
-  <div>
+  <div class="welcomesession">
     <h3 class="text-secondary">Finalizou o seu prato?</h3>
     <p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
     <br>
     <h3 class="text-secondary">Preço total do pedido:</h3>
-    <p class="text-black-50">Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro</p>
-    <%= link_to "entrar", new_user_session_path, class: "btn btn-success text-white welcomeorderbutton" %>
-    <%= link_to "cadastro", new_user_registration_path, class: "btn btn-outline-success welcomeorderbutton" %>
+    <% if user_signed_in? %>
+      <%= link_to "finalizar e pagar", new_user_session_path , class: "btn btn-success text-white" %>
+    <% else %>
+      <p class="text-black-50">Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro</p>
+      <%= link_to "entrar", new_user_session_path, class: "btn btn-success text-white welcomeorderbutton" %>
+      <%= link_to "cadastro", new_user_registration_path, class: "btn btn-outline-success welcomeorderbutton" %>
+    <% end %>
   </div>
   </div>
 </body>
