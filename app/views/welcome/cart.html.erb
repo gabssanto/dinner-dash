@@ -112,7 +112,7 @@
                 <%#= order.Situation_id %>
                 <td><%=order.created_at.strftime("%d/%m/%Y")%></td>
                 <td><%= order.price %></td>
-                <td><%= link_to 'ver itens pedidos', order_meals_url,confirm: 'Are you sure?', class:"text-primary font2" %></td>
+                <td><%= link_to 'ver itens pedidos', order, class:"text-primary font2" %></td>
               </tr>
             <% end %>
             <% end %>
