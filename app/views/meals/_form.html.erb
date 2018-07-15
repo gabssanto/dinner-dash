@@ -18,7 +18,7 @@
 			</div>
 			<div class="col">
 				<%= form.label :Categoria, class: "text-muted" %><br>
-				<%= form.select :MealCategory_id, MealCategory.all.map{|c| [c.name, c.id]}, class: "my-1 mr-2" %>
+				<%= form.select :MealCategory_id, MealCategory.all.map{|c| [c.name, c.id]}, {}, { :class => 'custom-select' } %>
 			</div>
 		</div>
 
