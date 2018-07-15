@@ -24,6 +24,7 @@ Situation.create(:description => "cancelado")
 
 OrderMeal.create(:quantity => 1, :Order_id => 4, :Meal_id => 1)
 OrderMeal.create(:quantity => 1, :Order_id => 4, :Meal_id => 2)
+OrderMeal.create(:quantity => 2, :Order_id => 4, :Meal_id => 3)
 
 Meal.create(name: 'Salada de Macarrão Parafuso', description: 'Possui macarrão, frango, milho, alcaparras e algumas frutas.', price: '12', image: '/images/Salada de Macarrão Parafuso.jpg', avaible: '1', MealCategory_id: '1'  )
 Meal.create(name: 'Salada de Macarrão e Atum', description: 'Possui macarrão, atum, milho, pimentão, cebola e maionese', price: '12', image: '/images/Salada de Macarrão e Atum.jpg', avaible: '1', MealCategory_id: '1'  )

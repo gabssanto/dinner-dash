@@ -1,3 +1,4 @@
+<% if current_user.admin? %>
 <%= link_to "dinnerdash", :back, :class => 'title_edit active' %>
 <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'active logout_edit'  %>
 <h1 class="user_edit">Backoffice</h1>
@@ -22,3 +23,6 @@
 
     </div>
 </body>
+<%else%>
+  Conteúdo não disponível ao usuário
+<% end %>

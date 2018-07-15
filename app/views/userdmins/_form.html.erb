@@ -23,9 +23,9 @@
         <div class="col">
             <%= f.label :Perfil %> <br />
             <% if @user.admin? %>
-                <%= f.select :admin, options_for_select([ ['Administrador', 1], ['Padrão', 0] ]) %>
+                <%= f.select :admin, options_for_select([ ['Administrador', 1], ['Padrão', 0] ]), {}, { :class => 'custom-select' } %>
             <% else %>
-                <%= f.select :admin, options_for_select([['Padrão', 0], ['Administrador', 1]]) %>
+                <%= f.select :admin, options_for_select([['Padrão', 0], ['Administrador', 1]]), {}, { :class => 'custom-select' } %>
             <% end %>
         </div>   
     </div>
