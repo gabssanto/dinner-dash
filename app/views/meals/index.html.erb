@@ -3,8 +3,16 @@
 <h1 class="user_edit">Backoffice</h1>
 <h2 class="subtitle">Gerencie pedidos, refeicoes e mais.</h2>
 
+<% contador = 0 %>
+<% @meals.each do |meal| %>
+<% contador += 1 %>
+<% end %>
 <body class="fundobackoffice">
-  <div class ="log3">
+	<% if contador > 0 %>
+  <div class ="log4">
+	<% else %>
+	<div class ="log2">
+	<% end %>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
         <div class="leftmarginnavbar">
@@ -21,8 +29,8 @@
       <div class="form-row col">
       	<% @meals.each do |meal| %>
         	<div class="card" style="width: 18rem;">
-          	<div class="card-body">
-            	<img src="/images/Macarrão.jpg", class="card-img-top">
+          	<div class="card-body namefontsize">
+            	<img src="/images/<%=meal.name%>.jpg", class="card-img-top mealSize">
 							<div class="card-header bg-dark text-white">
 								<%=meal.name%>
 							</div>
@@ -32,9 +40,9 @@
             	<% end %>
             	<h7 class="card-text text-secondary"><%= meal.description %></h7>
           		<br>
-            	<h5 class="card-text text-success">R$ <%= meal.price%>,00 por porção</h5>              
-          	</div>
-          	<div class="card-body">  
+            	<h5 class="card-text text-success">R$ <%= meal.price%>,00 por porção</h5>
+							<br>
+							<br>
 							<%= link_to 'Editar', edit_meal_path(meal), class:"btn btn-warning text-white btn-sm buttonSize" %>
 							<%= link_to 'Excluir', meal, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger text-white buttonSize btn-sm" %>
           	</div>
@@ -43,6 +51,6 @@
     	</div>
   	</div>
   	<br>
-  	<%= link_to 'New Meal', new_meal_path, class:"btn btn-success intro4 text-white"%>
+  	<%= link_to 'New Meal', new_meal_path, class:"btn btn-success intro4 text-white "%>
   </div>
 </body>

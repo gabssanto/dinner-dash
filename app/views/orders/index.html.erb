@@ -1,3 +1,4 @@
+<% if current_user.admin? %>
 <h1 class="title_edit">dinnerdash</h1>
 <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'active logout_edit text-white'  %>
 <h1 class="user_edit">Backoffice</h1>
@@ -32,27 +33,33 @@
 
           <tbody>
             <% @orders.each do |order| %>
+            <% @users.each do |user| %>
+            <%if order.User_id == user.id %>
+            
               <tr>
                 <td scope="row"><%= order.id %></td>
-                <%   if order.Situation_id == 1%>
+                <%   if order.Situation_id == 1 %>
                   <td class="bg-primary text-white">entregue</td>
                 <%end%>
-                <%   if order.Situation_id == 2%>
+                <%   if order.Situation_id == 2 %>
                   <td class="bg-success text-white">pendente</td>
                 <%end%>
-                <%   if order.Situation_id == 3%>
+                <%   if order.Situation_id == 3 %>
                   <td class="bg-danger text-white">cancelado</td>
                 <%end%>
                 <%#= order.Situation_id %>
                 <td><%=order.created_at.strftime("%d/%m/%Y")%></td>
-                <td>usuario </td>
-                <td><%= order.User_id %></td>
+                
+                <td><%= user.name %></td>
                 <td><%= order.price %></td>
                 <td><%= link_to 'ver itens pedidos', order, class:"text-primary font2" %></td>
                 <td><%= link_to 'Edit', edit_order_path(order), class:"text-warning font2" %></td>
                 <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger font2" %></td>
               </tr>
             <% end %>
+            
+            <% end %><% end %>
+            
           </tbody>
         </table>
         </div>
@@ -61,3 +68,6 @@
         <%= link_to 'New Order', new_order_path %>
     </div>
 </body>
+<%else%>
+  Conteúdo não disponível ao usuário
+<% end %>

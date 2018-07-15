@@ -9,7 +9,9 @@ class MealsController < ApplicationController
   # GET /meals.json
   def index
     @meals = Meal.all
+    @meal_categories = MealCategory.all
   end
+
 
   # GET /meals/1
   # GET /meals/1.json
@@ -23,6 +25,7 @@ class MealsController < ApplicationController
 
   # GET /meals/1/edit
   def edit
+    @meal_categories = MealCategory.all
   end
 
   # POST /meals
@@ -76,3 +79,4 @@ class MealsController < ApplicationController
       params.require(:meal).permit(:name, :description, :price, :image, :avaible, :MealCategory_id)
     end
 end
+

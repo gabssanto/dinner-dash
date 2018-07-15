@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_07_05_022945) do
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "price"
+    t.integer "price"
     t.binary "image"
     t.string "avaible"
     t.integer "MealCategory_id"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 2018_07_05_022945) do
 
   create_table "order_meals", force: :cascade do |t|
     t.integer "quantity"
-    t.string "Order_id"
+    t.integer "Order_id"
     t.string "integer"
-    t.string "Meal_id"
+    t.integer "Meal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

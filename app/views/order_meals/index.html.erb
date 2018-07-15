@@ -1,32 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Order Meals</h1>
+<h1>Detalhes do Pedido</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Id order_meal</th>
       <th>Quantity</th>
       <th>Order</th>
-      <th>Integer</th>
       <th>Meal</th>
-      <th>Integer</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @order_meals.each do |order_meal| %>
+    <% @meal.each do |meal| %>
+    <%# @order.each do |order| %>
+    <%#if order.id == order_meal.Order_id%>
+    <%if meal.id == order_meal.Meal_id%>
       <tr>
+        <td><%= order_meal.id %></td>
         <td><%= order_meal.quantity %></td>
         <td><%= order_meal.Order_id %></td>
-        <td><%= order_meal.integer %></td>
-        <td><%= order_meal.Meal_id %></td>
-        <td><%= order_meal.integer %></td>
+        <td><%= meal.name %></td>
         <td><%= link_to 'Show', order_meal %></td>
         <td><%= link_to 'Edit', edit_order_meal_path(order_meal) %></td>
         <td><%= link_to 'Destroy', order_meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <% end %><% end %><% end %><% end %><%# end %>
   </tbody>
 </table>
 

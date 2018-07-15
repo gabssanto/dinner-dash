@@ -14,12 +14,15 @@
 
 .log4{
     background-color: white;
-    position: absolute;
     margin-top: 20%;
     left: 0px; 
     right: 0px;
 }
 
+.log6{
+    position: absolute;
+    bottom: 0%;
+}
 .fundoWelcome{
 	background-size: 100% 70%;
 	background-image: url("/images/jay-wennington-2065.jpg");
@@ -27,6 +30,17 @@
 	background-repeat: no-repeat;
 }
 
+.fundoCart {
+	background-size: 100% 100%;
+	background-image: url("/images/elli-o-43178.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
 .welcomeorderbutton{
     width: 15.1%;
+}
+
+.welcomesession{
+    margin-left: 80px;
 }

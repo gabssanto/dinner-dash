@@ -1,0 +1,84 @@
+<%= form_with(model: @order, local: true) do |form| %>
+
+
+<h1 class="title_edit">dinnerdash</h1>
+<% if user_signed_in? %>
+  <h1 class="user_edit">Bem-vindo, <strong><%= current_user.name %></strong>.</h1>
+  <h2 class="subtitle">Neste espaço você pode finalizar seu pedido.</h2>
+  <%= link_to 'Perfil', edit_user_registration_path, :class => 'perfil_edit text-white' %>
+  <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'logout_edit text-white'  %>
+  <% if current_user.admin? %>
+    <%= link_to "Ir para backoffice", "/orders", class: "btn btn-success intro4"   %>
+  <% end %>
+<% else %>
+  <div class="welcomeButtonsEdit">
+    <%= link_to "entrar", new_user_session_path, class: "text-white" %>
+    <%= link_to "cadastro", new_user_registration_path, class: "text-white" %>
+  </div>
+  <h1 class="user_edit">Monte o seu prato</h1>
+  <h2 class="subtitle">Escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+<% end %>
+
+
+<body class ="fundoCart">
+    <div class="log4">
+        <div class="tablecss">  
+            <h3 class="text-secondary">O seu pedido:</h3>
+            <p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
+            <br>
+            <!--adicionar carrinho aqui-->
+            <%#adicionar carrinho aqui%>
+
+
+            <div class="form-row">
+                <div class="col">
+                    <h3 class="text-secondary">Esqueceu algo?</h3>
+                    <%= link_to "Clique aqui para retornar ao menu", "/", class: "text-black" %>
+                </div>  
+                <div class="col">
+                    <h3 class="text-secondary">Preço total do pedido:</h3>
+                    <%= form.submit "finalizar e pagar", class:"btn btn-success intro5 active"  %>(nao funciona)
+                </div>  
+            </div>
+        </div>
+
+        <div class = "tablecss">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Pedido de nº</th>
+              <th scope="col">Status</th>
+              <th scope="col">Data</th>
+              <th scope="col">Preço Total</th>
+              <th scope="col" colspan="5">Detalhes</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @orders.each do |order| %>
+            <%if current_user.id == order.User_id%>
+              <tr>
+                <td scope="row"><%= order.id %></td>
+                <%   if order.Situation_id == 1 %>
+                  <td class="bg-primary text-white">entregue</td>
+                <%end%>
+                <%   if order.Situation_id == 2 %>
+                  <td class="bg-success text-white">pendente</td>
+                <%end%>
+                <%   if order.Situation_id == 3 %>
+                  <td class="bg-danger text-white">cancelado</td>
+                <%end%>
+                <%#= order.Situation_id %>
+                <td><%=order.created_at.strftime("%d/%m/%Y")%></td>
+                <td><%= order.price %></td>
+                <td><%= link_to 'ver itens pedidos', order, class:"text-primary font2" %></td>
+              </tr>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+    </div>
+</body>
+
+<% end %>

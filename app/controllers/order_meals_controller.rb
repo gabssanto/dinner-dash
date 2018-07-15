@@ -1,14 +1,13 @@
 class OrderMealsController < ApplicationController
   before_action :set_order_meal, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action do 
-    redirect_to new_user_session_path unless current_user && current_user.admin?
-  end
 
   # GET /order_meals
   # GET /order_meals.json
   def index
     @order_meals = OrderMeal.all
+    @order = Order.all
+    @meal = Meal.all
   end
 
   # GET /order_meals/1

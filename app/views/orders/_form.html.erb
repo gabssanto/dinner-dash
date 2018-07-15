@@ -20,7 +20,7 @@
         </div>
         <div class="col">
             <%= form.label :Status %>
-            <%= select_tag :Situation_id, options_for_select([ ["entregue", 1], ["pendente", 2], ["cancelado", 3] ], 2),  class: "custom-select mr-sm-2 " %>
+            <%= form.select :Situation_id, Situation.all.map{|c| [c.description, c.id]}, {}, { :class => 'custom-select' } %>
         </div>   
     </div>
 

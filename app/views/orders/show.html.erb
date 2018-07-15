@@ -1,19 +1,40 @@
-<p id="notice"><%= notice %></p>
+<h3 class="text-secondary">Detalhes do Pedido</h3>
+    <div class="form-row col">
+    <% @order_meals.each do |order_meal| %>
+    
+    <% @meal.each do |meal| %>
+    <%if @order.id == order_meal.Order_id%>
+    <%if meal.id == order_meal.Meal_id%>
+        <div class="tablecss">    
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <img src="/images/Macarrão.jpg", class="card-img-top">
+            <div class="card-header bg-dark text-white">
+                <%=meal.name%>
+            </div>
+            <br>
+            <%a = (meal.price)%>
+            <%b = (order_meal.quantity)%>
+            <%c = a * b%>
+            <h5 class="card-text text-secondary">Preço unitário: R$ <%= meal.price%>,00</h5>
+            <h5 class="card-text text-secondary">Preço total: R$ <%= c%>,00</h5>
+            <h6 class="card-text text-secondary">Quantidade: <%= order_meal.quantity %></h6>              
+            </div>       
+        </div>
+        </div>
+        
+     
+        <%#= order_meal.id %>
+        <%#= order_meal.quantity %>
+        <%#= order_meal.Order_id %>
+        <%#= meal.name %>
+    
+    <% end %>
+    <% end %>
+    <% end %>
+    <% end %>
+    </div>
+<div class="tablecss">
+<%= link_to 'voltar', "/welcome/cart", class:"leftmarginvoltar btn btn-secondary active" %>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @order.price %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @order.User_id %>
-</p>
-
-<p>
-  <strong>Situation:</strong>
-  <%= @order.Situation_id %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
