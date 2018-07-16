@@ -1,9 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action do 
-    redirect_to new_user_session_path unless current_user && current_user.admin?
-  end
+  
 
   # GET /orders
   # GET /orders.json
@@ -15,6 +13,9 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order_meals = OrderMeal.all
+    @meal = Meal.all
+    @users = User.all
   end
 
   # GET /orders/new

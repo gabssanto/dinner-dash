@@ -26,53 +26,8 @@
             <h3 class="text-secondary">O seu pedido:</h3>
             <p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
             <br>
-
-            <div class="tablecss">
-      <div class="form-row col">
-      	<% @meals.each do |meal| %>
-          <% if meal.avaible  == '1' %>
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <% if meal.image.attached? %>
-            		  <%= image_tag(meal.image, class: "card-img-top mealSize")%>
-							  <% else %>
-								  <img src="/images/Generico.jpg", class="card-img-top mealSize">
-							  <% end %>
-                <div class="card-header bg-dark text-white">
-                  <%=meal.name%>
-                </div>
-                <% if meal.avaible  == '0' %>
-                  <h7 class="card-text text-secondary">Refeição indisponível</h7>
-                  <br>
-                <% end %>
-                <h7 class="card-text text-secondary"><%= meal.description %></h7>
-                <br>
-                <h5 class="card-text text-success">R$ <%= meal.price%>,00 por porção</h5>              
-              </div>
-              <div class="card-body">
-                <h6 class="card-text text-secondary">Quantidade</h6>
-                <select class="custom-select">
-                  <option selected>1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-                <br>
-                <br>
-                <button type="button" class="btn btn-success text-white welcomeAddButton">adicionar ao meu prato</button>
-              </div>
-            </div>
-          <% end %>
-      	<% end %>
-    	</div>
-  	</div>
-
+            <!--adicionar carrinho aqui-->
+            <%#adicionar carrinho aqui%>
 
 
             <div class="form-row">
@@ -116,7 +71,7 @@
                 <%#= order.Situation_id %>
                 <td><%=order.created_at.strftime("%d/%m/%Y")%></td>
                 <td><%= order.price %></td>
-                <td><%= link_to 'ver itens pedidos', order_meals_url,confirm: 'Are you sure?', class:"text-primary font2" %></td>
+                <td><%= link_to 'ver itens pedidos', order, class:"text-primary font2" %></td>
               </tr>
             <% end %>
             <% end %>

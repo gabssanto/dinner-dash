@@ -6,7 +6,7 @@ class OrderMealsController < ApplicationController
   # GET /order_meals.json
   def index
     @order_meals = OrderMeal.all
-    @orders = Order.all
+    @order = Order.all
     @meal = Meal.all
   end
 
