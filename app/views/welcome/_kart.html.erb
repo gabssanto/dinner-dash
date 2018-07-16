@@ -7,7 +7,11 @@
                   <% if meal.avaible  != '0' %>
                     <li>
                     <div class="pai">
-                      <div class="imgref"> <img src="/images/<%=meal.name%>.jpg" class="imgref" ></div>
+                      <div class="imgref"> <% if meal.image.attached? %>
+                <%= image_tag(meal.image, class: "imgref")%>
+              <% else %>
+                <img src="/images/Generico.jpg", class="imgref">
+              <% end %></div>
                       <p class="fonte"><%=meal.name%></p>
                       <p class="fonte2">Quantidade: <%= vari2 %> </p>
                       <p class="fonte2">Preço unitário: <%= meal.price %> </p>
