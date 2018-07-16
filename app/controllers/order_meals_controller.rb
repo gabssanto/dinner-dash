@@ -28,40 +28,31 @@ class OrderMealsController < ApplicationController
   # POST /order_meals.json
   def create
     @order_meal = OrderMeal.new(order_meal_params)
-
-    respond_to do |format|
       if @order_meal.save
-        format.html { redirect_to @order_meal, notice: 'Order meal was successfully created.' }
-        format.json { render :show, status: :created, location: @order_meal }
+        redirect_to @order_meal
       else
-        format.html { render :new }
-        format.json { render json: @order_meal.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /order_meals/1
   # PATCH/PUT /order_meals/1.json
   def update
-    respond_to do |format|
+    
       if @order_meal.update(order_meal_params)
-        format.html { redirect_to @order_meal, notice: 'Order meal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order_meal }
+        edirect_to @order_meal
       else
-        format.html { render :edit }
-        format.json { render json: @order_meal.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
+    
   end
 
   # DELETE /order_meals/1
   # DELETE /order_meals/1.json
   def destroy
     @order_meal.destroy
-    respond_to do |format|
-      format.html { redirect_to order_meals_url, notice: 'Order meal was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to order_meals_url
+    
   end
 
   private

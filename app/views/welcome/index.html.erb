@@ -4,12 +4,12 @@
 	<%= link_to 'Perfil', edit_user_registration_path, :class => 'perfil_edit text-white' %> |
 	<%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'logout_edit text-white'  %>
 	<% if current_user.admin? %>
-		<%= link_to "Ir para backoffice", "/orders", class: "btn btn-success intro4"   %>
+		<%= link_to "Backoffice", "/orders", class: "logout_edit botaoback text-white"   %>
 	<% end %>
 <% else %>
 	<div class="welcomeButtonsEdit">
-		<%= link_to "entrar", new_user_session_path, class: "text-white" %>
-		<%= link_to "cadastro", new_user_registration_path, class: "text-white" %>
+		<%= link_to "Entrar", new_user_session_path, class: "logout_edit botaoback3 text-white" %>
+		<%= link_to "Cadastro", new_user_registration_path, class: "logout_edit  text-white" %>
 	</div>
 	<h1 class="user_edit">Monte o seu prato</h1>
 	<h2 class="subtitle">Escolha sua salada, molho, prato principal, guarnição e bebida, etc</h2>
@@ -43,21 +43,13 @@
               							</div>
               							<div class="card-body">
 											<h6 class="card-text text-secondary">Quantidade</h6>
-											<select class="custom-select">
-												<option selected>1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-												<option value="10">10</option>
-											</select>
 											<br>
-											<br>
-											<button type="button" class="btn btn-success text-white welcomeAddButton">adicionar ao meu prato</button>
+                      <%= form_with url: cart_items_path(meal_id: meal.id), method: :create do |form| %>
+                        <%= form.number_field :quant, min: 1, value:1, class: "form-control" %>
+                        <br>
+                        <br>
+                        <%= form.submit "Adicionar ao meu prato", class: "btn btn-success text-white welcomeAddButton" %>
+                      <% end %>
 										</div>
 									</div>
 								</div>
@@ -67,18 +59,35 @@
 				</div>
 			<% end %>
 		</div>
-		<div class="welcomesession">
-			<h3 class="text-secondary">Finalizou o seu prato?</h3>
-			<p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
-			<br>
-			<h3 class="text-secondary">Preço total do pedido:</h3>
-			<% if user_signed_in? %>
-				<%= link_to "finalizar e pagar", new_user_session_path , class: "btn btn-success text-white" %>
-			<% else %>
-				<p class="text-black-50">Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro</p>
-				<%= link_to "entrar", new_user_session_path, class: "btn btn-success text-white welcomeorderbutton" %>
-				<%= link_to "cadastro", new_user_registration_path, class: "btn btn-outline-success welcomeorderbutton" %>
-			<% end %>
+			<div class="branco">
+				<div class="fin">
+				<% unless @cart.data.empty?%> 
+					<h3 class="text-secondary">Finalizou o seu prato?</h3>
+					<p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
+					<% end %>
+					<br>
+				</div>
+				<br>
+
+				<section class="fin2"> <%= render 'kart'%> </section>
+				<br>
+				<div class="fin3">
+				<% unless @cart.data.empty?%> 
+					<h3 class="text-secondary texto">Preço total do pedido: </h3>
+					<% end %>
+					<% if user_signed_in? %>
+						<% unless @cart.data.empty?%> 
+						<%= link_to "finalizar e pagar", welcome_cart_path , class: "btn btn-success text-white" %>
+						<% end %>
+					<% else %>
+						<p class="text-black-50 texto">Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro</p>
+						<%= link_to "entrar", new_user_session_path, class: "btn btn-success text-white welcomeorderbutton" %>
+						<%= link_to "cadastro", new_user_registration_path, class: "btn btn-outline-success welcomeorderbutton" %>
+					
+					<% end %>
+				</div>
+			</div>
 		</div>
-  	</div>
 </body>
+<footer class="t"><p class="di">dinnerdash | todos os direitos reservados</p></footer>
+
