@@ -33,7 +33,11 @@
           <% if meal.avaible  == '1' %>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <img src="/images/Macarrão.jpg", class="card-img-top">
+                <% if meal.image.attached? %>
+            		  <%= image_tag(meal.image, class: "card-img-top mealSize")%>
+							  <% else %>
+								  <img src="/images/Generico.jpg", class="card-img-top mealSize">
+							  <% end %>
                 <div class="card-header bg-dark text-white">
                   <%=meal.name%>
                 </div>

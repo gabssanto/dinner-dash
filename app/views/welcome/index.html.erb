@@ -29,7 +29,11 @@
 	  							<div class="col">
             						<div class="card" style="width: 18rem;">
               							<div class="card-body">
-                							<img src="/images/<%=meal.name%>.jpg", class="card-img-top mealSize", alt="Card image cap">
+                							<% if meal.image.attached? %>
+            									<%= image_tag(meal.image, class: "card-img-top mealSize")%>
+											<% else %>
+												<img src="/images/Generico.jpg", class="card-img-top mealSize">
+											<% end %>
                 							<div class="card-header bg-dark text-white namefontsize">
                   								<%=meal.name%>
                 							</div>
