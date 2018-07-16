@@ -7,8 +7,9 @@ class CartItemsController < ApplicationController
 		# cart_data[meal_id] += 1
 		# session[:cart] = cart_data
 
-
-		@cart.add_item(params[:meal_id])
+		meal_id = params[:meal_id]
+		quant = params[:quant]
+		@cart.add_item(meal_id, quant)
 		session[:cart] = @cart.data
 
 		redirect_to root_path

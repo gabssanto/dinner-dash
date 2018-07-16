@@ -7,9 +7,9 @@ class Cart
 
 	end
 
-	def add_item(meal_id)
+	def add_item(meal_id, quant)
 		@data[meal_id] ||= 0
-		@data[meal_id] += 1
+		@data[meal_id] += quant.to_i
 
 	end
 
