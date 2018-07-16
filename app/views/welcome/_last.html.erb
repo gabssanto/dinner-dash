@@ -1,0 +1,29 @@
+<body class="kart">  
+        <ul class="cartao">
+          <% @meals.each do |meal| %>
+          	<% if @cart.data.key?(meal.id.to_s) %>
+                <% vari = @cart.data.values_at(meal.id.to_s) %>
+                <% vari2 = vari[0] %>
+                  <% if meal.avaible  != '0' %>
+                    <li>
+                    <div class="pai">
+                      <div class="imgref"> <img src="/images/<%=meal.name%>.jpg" class="imgref" ></div>
+                      <% @orders.each do |order| %>
+                      <p class="fonte"><%=meal.name%></p>
+                      <p class="fonte2">Quantidade: <%= order.price %> </p>
+                      <p class="fonte2">Preço unitário: <%= meal.price %> </p>
+                      <p class="fonte2">Preço total: <%= meal.price * vari2 %> </p>
+                  		  <div class="altera">
+                      <% end %>  
+                          
+                          
+                          <%= link_to "Remover do prato", apaga_path(meal_id: meal.id), method: :put, class: "btn btn-outline-danger welcomeAddButton formtam" %>
+                          
+                        </div>
+                      </div>
+                    </li>
+          		<% end %>
+          	<% end %>
+          <% end %>
+        </ul>
+</body>

@@ -1,4 +1,4 @@
-<%= form_with(model: @order, local: true) do |form| %>
+
 
 
 <h1 class="title_edit">dinnerdash</h1>
@@ -7,8 +7,9 @@
   <h2 class="subtitle">Neste espaço você pode finalizar seu pedido.</h2>
   <%= link_to 'Perfil', edit_user_registration_path, :class => 'perfil_edit text-white' %>
   <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'logout_edit text-white'  %>
+  <%= link_to "Home", root_path, :class => 'active logout_edit botaoback text-white'  %>
   <% if current_user.admin? %>
-    <%= link_to "Ir para backoffice", "/orders", class: "btn btn-success intro4"   %>
+    <%= link_to "Backoffice", "/orders", class: "logout_edit botaoback text-white"   %>
   <% end %>
 <% else %>
   <div class="welcomeButtonsEdit">
@@ -22,27 +23,50 @@
 
 <body class ="fundoCart">
     <div class="log4">
-        <div class="tablecss">  
+        <div class="tablecss"> 
+            <div class="form-row">
+            <% unless @cart.data.empty?%> 
             <h3 class="text-secondary">O seu pedido:</h3>
+            </div>
+            <div class="form-row">
             <p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
             <br>
-            <!--adicionar carrinho aqui-->
-            <%#adicionar carrinho aqui%>
-
-
+            </div>
+            <div class="form-row">
+              <%= render 'kart' %>
+            </div>
+            <% end %>
             <div class="form-row">
                 <div class="col">
-                    <h3 class="text-secondary">Esqueceu algo?</h3>
-                    <%= link_to "Clique aqui para retornar ao menu", "/", class: "text-black" %>
+                    <% unless @cart.data.empty?%> 
+                    <h3 class="text-secondary texto">Esqueceu algo?</h3>
+                    <%= link_to "Clique aqui para retornar ao menu", root_path, class: "btn btn-success intro5 active " %>
+                    <% end %>
                 </div>  
+
+                <% soma = 0%>
+                <% @meals.each do |meal| %>
+                  <% if @cart.data.key?(meal.id.to_s) %>
+                        <% vari = @cart.data.values_at(meal.id.to_s) %>
+                        <% vari2 = vari[0] %>
+                        <% if meal.avaible  != '0' %>
+                          <% soma = soma + (meal.price * vari2) %>       
+                        <% end %>
+                  <% end %>
+                <% end %>
                 <div class="col">
-                    <h3 class="text-secondary">Preço total do pedido:</h3>
-                    <%= form.submit "finalizar e pagar", class:"btn btn-success intro5 active"  %>(nao funciona)
+                    <% unless @cart.data.empty?%>
+                    <h3 class="text-secondary texto">Preço total do pedido:</h3> 
+                    <% end %>
+                    <% unless @cart.data.empty?%>
+                    <%= link_to "finalizar e pagar", orders_path(preco_final: soma ), method: :post, class: "btn btn-success intro5 active" %>
+                    <% end %>
                 </div>  
             </div>
         </div>
 
         <div class = "tablecss">
+        <div class="form-row">
         <table class="table">
           <thead>
             <tr>
@@ -54,16 +78,17 @@
             </tr>
           </thead>
 
+          <% if user_signed_in? %>
           <tbody>
             <% @orders.each do |order| %>
             <%if current_user.id == order.User_id%>
               <tr>
                 <td scope="row"><%= order.id %></td>
                 <%   if order.Situation_id == 1 %>
-                  <td class="bg-primary text-white">entregue</td>
+                  <td class="bg-success text-white">entregue</td>
                 <%end%>
                 <%   if order.Situation_id == 2 %>
-                  <td class="bg-success text-white">pendente</td>
+                  <td class="bg-primary text-white">pendente</td>
                 <%end%>
                 <%   if order.Situation_id == 3 %>
                   <td class="bg-danger text-white">cancelado</td>
@@ -76,9 +101,9 @@
             <% end %>
             <% end %>
           </tbody>
+          <% end %>
         </table>
-        </div>
+        </div></div>
     </div>
 </body>
 
-<% end %>

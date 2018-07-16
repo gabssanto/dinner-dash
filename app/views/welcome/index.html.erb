@@ -4,12 +4,12 @@
 	<%= link_to 'Perfil', edit_user_registration_path, :class => 'perfil_edit text-white' %> |
 	<%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'logout_edit text-white'  %>
 	<% if current_user.admin? %>
-		<%= link_to "Ir para backoffice", "/orders", class: "btn btn-success intro4"   %>
+		<%= link_to "Backoffice", "/orders", class: "logout_edit botaoback text-white"   %>
 	<% end %>
 <% else %>
 	<div class="welcomeButtonsEdit">
-		<%= link_to "entrar", new_user_session_path, class: "text-white" %>
-		<%= link_to "cadastro", new_user_registration_path, class: "text-white" %>
+		<%= link_to "Entrar", new_user_session_path, class: "logout_edit botaoback3 text-white" %>
+		<%= link_to "Cadastro", new_user_registration_path, class: "logout_edit  text-white" %>
 	</div>
 	<h1 class="user_edit">Monte o seu prato</h1>
 	<h2 class="subtitle">Escolha sua salada, molho, prato principal, guarnição e bebida, etc</h2>
@@ -55,18 +55,35 @@
 				</div>
 			<% end %>
 		</div>
-		<div class="welcomesession">
-			<h3 class="text-secondary">Finalizou o seu prato?</h3>
-			<p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
-			<br>
-			<h3 class="text-secondary">Preço total do pedido:</h3>
-			<% if user_signed_in? %>
-				<%= link_to "finalizar e pagar", new_user_session_path , class: "btn btn-success text-white" %>
-			<% else %>
-				<p class="text-black-50">Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro</p>
-				<%= link_to "entrar", new_user_session_path, class: "btn btn-success text-white welcomeorderbutton" %>
-				<%= link_to "cadastro", new_user_registration_path, class: "btn btn-outline-success welcomeorderbutton" %>
-			<% end %>
+			<div class="branco">
+				<div class="fin">
+				<% unless @cart.data.empty?%> 
+					<h3 class="text-secondary">Finalizou o seu prato?</h3>
+					<p class="text-black-50">Confira os itens pedidos antes de finalizar o pedido</p>
+					<% end %>
+					<br>
+				</div>
+				<br>
+
+				<section class="fin2"> <%= render 'kart'%> </section>
+				<br>
+				<div class="fin3">
+				<% unless @cart.data.empty?%> 
+					<h3 class="text-secondary texto">Preço total do pedido: </h3>
+					<% end %>
+					<% if user_signed_in? %>
+						<% unless @cart.data.empty?%> 
+						<%= link_to "finalizar e pagar", welcome_cart_path , class: "btn btn-success text-white" %>
+						<% end %>
+					<% else %>
+						<p class="text-black-50 texto">Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro</p>
+						<%= link_to "entrar", new_user_session_path, class: "btn btn-success text-white welcomeorderbutton" %>
+						<%= link_to "cadastro", new_user_registration_path, class: "btn btn-outline-success welcomeorderbutton" %>
+					
+					<% end %>
+				</div>
+			</div>
 		</div>
-  	</div>
 </body>
+<footer class="t"><p class="di">dinnerdash | todos os direitos reservados</p></footer>
+

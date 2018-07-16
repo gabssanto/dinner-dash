@@ -30,17 +30,25 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order =  Order.new
+    # seta os dados por vez
+    @order.User_id = current_user.id
+    @order.Situation_id = 2
+    @order.price = params[:preco_final].to_f
+    @order.save
 
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    @cart.data.each do |cart|
+      @meal = Meal.find(cart[0].to_i)
+      OrderMeal.create(Order_id: @order.id, Meal_id: @meal.id, quantity: cart[1])
     end
+
+    
+      if @order.save
+        @cart.data.clear
+        redirect_to welcome_cart_path
+      else
+        render :new
+      end
   end
 
   # PATCH/PUT /orders/1

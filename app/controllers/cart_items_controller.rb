@@ -11,6 +11,12 @@ class CartItemsController < ApplicationController
 		quant = params[:quant]
 		@cart.add_item(meal_id, quant)
 		session[:cart] = @cart.data
+		redirect_to root_path
+	end
+
+	def apaga
+		m = params[:meal_id]
+		@cart.delete_item(m)
 
 		redirect_to root_path
 	end
