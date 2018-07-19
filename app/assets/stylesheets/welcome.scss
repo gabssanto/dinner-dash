@@ -1,0 +1,88 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.welcomeButtonsEdit{
+    position: absolute;
+    top: 10px;
+    right: 90px;
+
+}
+
+.welcomeAddButton{
+    width: 100%;
+}
+
+.log4{
+    background-color: #f0f0f0;
+    margin-top: 20%;
+    left: 0px; 
+    right: 0px;
+}
+
+.log6{
+    position: absolute;
+    bottom: 0%;
+}
+.fundoWelcome{
+	background-size: 100% 70%;
+	background-image: url("/images/jay-wennington-2065.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+.fundoCart {
+	background-size: 100% 100%;
+	background-image: url("/images/elli-o-43178.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+.welcomeorderbutton{
+    width: 15.1%;
+}
+
+.fin{
+    margin-left: 80px;
+    margin-top: 40px;
+}
+.fin2{
+    margin-left: 100px;
+    margin-top: -60px;
+}
+
+.texto {
+    margin-right: 800px;
+}
+.fin3{
+    margin-left: 80px;
+    padding-top: 100px;
+}
+
+.t{
+    background-color: #f0f0f0;
+    margin-top: 30px;
+    height: 50px;
+    text-align: center;
+}
+
+.di {
+    text-align: center;
+    font-size: 12pt;
+}
+
+.branco {
+    background-color: white;
+}
+
+
+.botaoback {
+    margin-right: 170px;
+}
+
+.botaoback2 {
+    margin-right: 70px;
+}
+
+.botaoback3 {
+    margin-right: -60px;
+}

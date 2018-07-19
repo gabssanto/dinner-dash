@@ -1,0 +1,60 @@
+
+.altera {
+	display: block;
+	position: relative;
+	height: 100px;
+	width: 160px;
+	margin-left: 320px;
+	margin-top: -60px;
+
+
+}
+
+.kart {
+	position: relative;
+}
+.formtam {
+	width: 50px;
+	height: 35px;
+}
+.fonte {
+	position: relative;
+	font-size: 12pt;
+	margin-left: 125px;
+	margin-right: 0px;
+}
+
+.fonte3 {
+	font-size: 11pt;
+	margin-bottom: 10px;
+}
+
+.fonte2 {
+	position: relative;
+	margin-top: -12px;
+	font-size: 10pt;
+	margin-left: 125px;
+	margin-right: 0px;
+}
+
+
+.pai {
+	width: 500px;
+	height: 150px;
+}
+
+.cartao li{
+	list-style-type: none;
+	float: left;
+	width: 500px;
+	height: 120px;
+	margin-top: 30px;
+	margin-left: 30px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.imgref {
+	position: absolute;
+	width: 120px;
+	height: 115px;
+}

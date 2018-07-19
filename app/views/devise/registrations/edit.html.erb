@@ -1,0 +1,44 @@
+<h1 class="title_edit">dinnerdash</h1>
+<h2 class="user_edit">Seu Perfil</h2>
+<h2 class="subtitle">Atualize seus dados pessoais e senha.</h2>
+<body class="fundo_edit">
+  <div class="log2"> 
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+      <div class = "perfil">
+      <form>
+        <div class="row">
+          <div class="col">
+            <%= f.label :nome %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name",  class: "form-control caixola2" %>
+          </div>
+          <div class="col">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autocomplete: "email",  class: "form-control caixola2" %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.label :senha %><br>
+            <%= f.password_field :password, autocomplete: "off",  class: "form-control caixola2" %>
+          </div>
+          <div class="col">
+            <%= f.label :senha_atual %><br />
+          <%= f.password_field :current_password, autocomplete: "off",  class: "form-control caixola2" %>
+          </div>
+        </div>
+      </form>
+        
+        <%= f.submit "atualizar meu perfil", class:"btn btn-success btperfil" %>
+      </div>
+      </div>
+      <br>
+      <br>
+    <% end %>  
+    
+  </div>
+</body>
+<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'logout_edit'  %><br>

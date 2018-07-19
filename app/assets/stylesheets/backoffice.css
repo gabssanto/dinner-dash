@@ -1,0 +1,47 @@
+.topmargin{
+    margin-top: 15px;
+}
+.leftmarginnavbar{
+    margin-left: 50px;
+}
+.font{
+	font-family: 'Roboto', sans-serif;
+}
+.font2{
+    font-family: 'Acme', sans-serif;
+}
+
+.leftmarginvoltar{
+    margin-left: 10px;
+}
+.tablecss{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.perfil{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.btperfil {
+	width: 350px;
+	display: block;
+	margin-bottom: 2%;
+	margin-top: 1%;
+}
+
+.log3 {
+    
+    background-color: white;
+    position: absolute;
+    margin-top: 20%;
+    left: 0px; 
+    right: 0px;
+	
+}
+
+.buttonSize{
+    width: 48%;
+}

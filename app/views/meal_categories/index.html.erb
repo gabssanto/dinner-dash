@@ -1,0 +1,62 @@
+<h1 class="title_edit">dinnerdash</h1>
+<%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'active logout_edit text-white '  %>
+<%= link_to "Home", root_path, :class => 'active logout_edit botaoback2 text-white'  %>
+<h1 class="user_edit">Backoffice</h1>
+<h2 class="subtitle">Gerencie pedidos, refeicoes e mais.</h2>
+
+<body class="fundobackoffice">
+    <div class ="log2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+          <div class="leftmarginnavbar">
+              <div class="navbar-nav">
+                  <%= link_to 'Pedidos', "/orders", class:"nav-item nav-link" %>
+                  <%= link_to 'Usuários', "/userdmins", class:"nav-item nav-link " %>
+                  <%= link_to 'Refeições', "/meals", class:"nav-item nav-link " %>
+                  <%= link_to 'Categorias de Refeição', "/meal_categories", class:"nav-item nav-link active" %>
+              </div>
+          </div>
+          </div>
+      </nav>
+      <div class = "tablecss">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Número de Refeições</th>
+            <th scope="col" colspan="3">Cadastrada em</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @meal_categories.each do |meal_category| %>
+            <tr>
+              <td scope="row"><%= meal_category.name %></td>
+              <% contador = 0 %>
+              <% @meals.each do |meal| %>
+                <% if meal.MealCategory_id == meal_category.id%>
+                  <% contador += 1 %>
+                <% end %>
+              <% end %>
+              <td> <%= contador%> </td>
+              <td><%=meal_category.created_at.strftime("%d/%m/%Y")%></td>
+              <td><%= link_to 'Edit', edit_meal_category_path(meal_category), class:"text-warning font2"  %></td>
+              <td><%= link_to 'Destroy', meal_category, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger font2" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to 'New Meal Category', new_meal_category_path, class:"btn btn-success intro5 active" %>
+
+      </div>
+      <br>
+
+      
+  </div>
+</body>
+
+
+
+
+
